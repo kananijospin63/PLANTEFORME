@@ -1,0 +1,80 @@
+{
+  "_comment": "Exemple complet du payload envoyé par le backend au Webhook Make — doit rester aligné sur backend/lib/make.ts (buildMakePayload)",
+  "_version": "2.0",
+
+  "source": "club-ai-backend",
+  "version": "2.0",
+  "event": "INSCRIPTION_CREATED",
+  "timestamp": "2026-11-15T14:30:00.000Z",
+
+  "reference": "CLUBAI-2026-0001",
+  "statut": "EN_ATTENTE",
+  "motivation": "Je souhaite apprendre à utiliser l'IA pour automatiser mon activité.",
+  "createdAt": "2026-11-15T14:30:00.000Z",
+
+  "nom": "Ndayizeye",
+  "prenom": "Jean",
+  "email": "jean@example.com",
+  "telephone": "+257 77 123 456",
+  "fonction": "Entrepreneur",
+  "entreprise": "JN SARL",
+  "niveauIA": "DEBUTANT",
+  "niveauIALabel": "Débutant",
+
+  "formation": {
+    "titre": "MAÎTRISER CHATGPT, GEMINI & CLAUDE ET CRÉER DES VIDÉOS AVEC L'IA",
+    "slug": "maitriser-chatgpt-gemini-claude",
+    "date": "01 – 05 DÉCEMBRE 2026",
+    "heure": "15H30 – 19H30",
+    "heureDebut": "15H30",
+    "heureFin": "19H30",
+    "lieu": "Centre CEPRODILUC, Bujumbura",
+    "lieuNom": "Centre CEPRODILUC",
+    "lieuVille": "Bujumbura",
+    "prix": "150 000 FBU"
+  },
+
+  "whatsappGroupUrl": "https://chat.whatsapp.com/BgwYG0nijyYHGLDh6ZYWCo?s=cl&p=a&mlu=4&ilr=4",
+
+  "sheets": {
+    "reference": "CLUBAI-2026-0001",
+    "dateInscription": "15/11/2026",
+    "nom": "Ndayizeye",
+    "prenom": "Jean",
+    "email": "jean@example.com",
+    "telephone": "+257 77 123 456",
+    "fonction": "Entrepreneur",
+    "entreprise": "JN SARL",
+    "niveauIA": "Débutant",
+    "formation": "MAÎTRISER CHATGPT, GEMINI & CLAUDE ET CRÉER DES VIDÉOS AVEC L'IA",
+    "dateFormation": "01 – 05 DÉCEMBRE 2026",
+    "heure": "15H30 – 19H30",
+    "lieu": "Centre CEPRODILUC, Bujumbura",
+    "prix": "150 000 FBU",
+    "motivation": "Je souhaite apprendre à utiliser l'IA pour automatiser mon activité.",
+    "statut": "EN ATTENTE"
+  },
+
+  "gemini": {
+    "prompt": "Tu es un conseiller bienveillant et enthousiaste de CLUB AI... [prompt complet généré automatiquement]",
+    "prenom": "Jean",
+    "formation": "MAÎTRISER CHATGPT, GEMINI & CLAUDE ET CRÉER DES VIDÉOS AVEC L'IA",
+    "niveauIA": "Débutant",
+    "motivation": "Je souhaite apprendre à utiliser l'IA pour automatiser mon activité."
+  },
+
+  "socials": {
+    "facebook": "https://www.facebook.com/jovim.code",
+    "instagram": "https://www.instagram.com/jovimcode?utm_source=qr",
+    "tiktok": "https://www.tiktok.com/@jovimcode?is_from_webapp=1&sender_device=pc",
+    "youtube": "https://www.youtube.com/@JovimCode",
+    "linkedin": ""
+  },
+
+  "contact": {
+    "email": "clubai@gmail.com",
+    "whatsapp1": "+257 77 165741",
+    "whatsapp2": "+257 79 49 08 06",
+    "site": "http://localhost:3000"
+  }
+}

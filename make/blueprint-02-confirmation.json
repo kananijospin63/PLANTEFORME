@@ -1,0 +1,115 @@
+{
+  "name": "CLUB AI — 02 Confirmation après validation",
+  "flow": [
+    {
+      "id": 1,
+      "module": "gateway:CustomWebHook",
+      "version": 1,
+      "parameters": {
+        "hook": "REMPLACER_PAR_VOTRE_HOOK_VALIDATION",
+        "maxResults": 1
+      },
+      "mapper": {},
+      "metadata": {
+        "designer": { "x": 0, "y": 0 },
+        "parameters": [
+          {
+            "name": "hook",
+            "type": "hook:gateway-webhook",
+            "label": "Webhook",
+            "required": true
+          },
+          {
+            "name": "maxResults",
+            "type": "number",
+            "label": "Maximum number of results",
+            "required": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
+        "method": "post",
+        "headers": [
+          { "name": "Content-Type", "value": "application/json" },
+          { "name": "x-goog-api-key", "value": "REMPLACER_PAR_VOTRE_CLE_GEMINI" }
+        ],
+        "qs": [],
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "data": "{\"contents\":[{\"parts\":[{\"text\":\"{{1.gemini.prompt}}\"}]}]}",
+        "serializeUrl": false,
+        "shareCookies": false,
+        "ca": "",
+        "rejectUnauthorized": true,
+        "followRedirect": true,
+        "useQuerystring": false,
+        "gzip": true,
+        "useMtls": false,
+        "authPass": "",
+        "authUser": "",
+        "parseResponse": true
+      },
+      "mapper": {},
+      "metadata": {
+        "designer": { "x": 300, "y": 0 },
+        "parameters": [
+          { "name": "url", "type": "text", "label": "URL", "required": true },
+          { "name": "method", "type": "select", "label": "Method", "required": true },
+          { "name": "headers", "type": "array", "label": "Headers", "required": false },
+          { "name": "qs", "type": "array", "label": "Query String", "required": false },
+          { "name": "bodyType", "type": "select", "label": "Body type", "required": true },
+          { "name": "contentType", "type": "select", "label": "Content type", "required": false },
+          { "name": "data", "type": "text", "label": "Data", "required": false },
+          { "name": "parseResponse", "type": "boolean", "label": "Parse response", "required": false }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "module": "google-email:sendEmail",
+      "version": 4,
+      "parameters": {
+        "to": ["{{1.email}}"],
+        "subject": "🎉 {{1.prenom}}, votre place est confirmée — {{1.formation.titre}}",
+        "content": "<div style=\"font-family:Arial,Helvetica,sans-serif;max-width:560px;margin:0 auto;background:#fffdf9;border:1px solid #eee3d6;border-radius:14px;overflow:hidden\"><div style=\"background:#1a100d;padding:22px 26px\"><p style=\"margin:0;font-size:12px;letter-spacing:.18em;color:#c9a227;text-transform:uppercase\">CLUB AI</p><p style=\"margin:6px 0 0;font-size:19px;color:#fff4e8;font-weight:bold\">Place confirmée</p></div><div style=\"padding:26px\"><p style=\"margin:0 0 14px;font-size:15px;color:#1a100d\">Bonjour {{1.prenom}},</p><div style=\"font-size:14px;line-height:1.7;color:#3d2f28;white-space:pre-line\">{{2.data.candidates[1].content.parts[1].text}}</div><div style=\"margin:22px 0;padding:16px 18px;background:#faf6f0;border-left:3px solid #c9a227;border-radius:8px;font-size:13px;color:#1a100d;line-height:1.7\"><strong>{{1.formation.titre}}</strong><br>{{1.formation.date}} · {{1.formation.heure}}<br>{{1.formation.lieu}}</div><table style=\"width:100%;border-collapse:collapse;margin:0 0 18px;font-size:13px\"><tr><td style=\"padding:7px 0;color:#8a7a70\">Référence</td><td style=\"padding:7px 0;color:#1a100d;font-weight:bold;text-align:right\">{{1.reference}}</td></tr><tr><td style=\"padding:7px 0;color:#8a7a70\">Montant</td><td style=\"padding:7px 0;color:#1a100d;text-align:right\">{{1.formation.prix}}</td></tr></table><p style=\"margin:0;font-size:13px;color:#3d2f28;line-height:1.7\">Merci d'arriver <strong>15 minutes avant le début</strong> avec une pièce d'identité. Présentez votre référence à l'accueil.</p><p style=\"margin:22px 0 0\"><a href=\"{{1.whatsappGroupUrl}}\" style=\"display:inline-block;background:#1a100d;color:#fff4e8;text-decoration:none;padding:12px 22px;border-radius:10px;font-size:13px;font-weight:bold\">Rejoindre le groupe WhatsApp</a></p></div><div style=\"padding:18px 26px;background:#faf6f0;border-top:1px solid #eee3d6;font-size:11.5px;color:#8a7a70;line-height:1.6\">Une question ? WhatsApp {{1.contact.whatsapp1}} · {{1.contact.email}}<br>CLUB AI — {{1.formation.lieuNom}}, {{1.formation.lieuVille}}</div></div>",
+        "contentType": "html",
+        "from": "REMPLACER_PAR_ADRESSE_EXPEDITEUR",
+        "name": "CLUB AI"
+      },
+      "mapper": {},
+      "metadata": {
+        "designer": { "x": 600, "y": 0 },
+        "parameters": [
+          { "name": "to", "type": "array", "label": "To", "required": true },
+          { "name": "subject", "type": "text", "label": "Subject", "required": true },
+          { "name": "content", "type": "text", "label": "Content", "required": true },
+          { "name": "contentType", "type": "select", "label": "Content type", "required": false },
+          { "name": "from", "type": "select", "label": "From", "required": false },
+          { "name": "name", "type": "text", "label": "Name", "required": false }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "freshVariables": false
+    },
+    "designer": { "orphans": [] },
+    "zone": "eu1.make.com"
+  }
+}

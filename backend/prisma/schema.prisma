@@ -1,0 +1,121 @@
+// ============================================================
+// JOVIM Tech — Schéma Prisma
+// ============================================================
+// Base de données : PostgreSQL
+// ORM : Prisma 5.x
+// ============================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================================
+// ENUMS
+// ============================================================
+
+enum StatutInscription {
+  EN_ATTENTE
+  CONFIRMEE
+  ANNULEE
+}
+
+enum StatutFormation {
+  ACTIVE
+  COMPLETE
+  ANNULEE
+}
+
+enum NiveauIA {
+  DEBUTANT
+  INTERMEDIAIRE
+  AVANCE
+}
+
+// ============================================================
+// FORMATION
+// ============================================================
+
+model Formation {
+  id          String          @id @default(cuid())
+  slug        String          @unique
+  titre       String
+  description String          @db.Text
+  objectif    String          @db.Text
+  modules     Json            // Array de { id, titre, description }
+  projetFinal String          @db.Text @map("projet_final")
+  date        String          // "05 OCTOBRE 2026" — format affiché
+  heureDebut  String          @map("heure_debut") // "14H00"
+  heureFin    String          @map("heure_fin")   // "17H00"
+  lieu        Json            // { nom, adresse, ville, pays }
+  prix        Int             // en FBU (150000)
+  prixAffiche String          @map("prix_affiche") // "150 000 FBU"
+  formateur   String
+  statut      StatutFormation @default(ACTIVE)
+  createdAt   DateTime        @default(now()) @map("created_at")
+  updatedAt   DateTime        @updatedAt      @map("updated_at")
+
+  // Relations
+  inscriptions Inscription[]
+
+  @@map("formations")
+}
+
+// ============================================================
+// PARTICIPANT
+// ============================================================
+
+model Participant {
+  id            String   @id @default(cuid())
+  nom           String
+  prenom        String
+  dateNaissance DateTime @map("date_naissance") @db.Date
+  email         String   @unique
+  telephone     String
+  fonction      String
+  entreprise    String?
+  niveauIA      NiveauIA @map("niveau_ia")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt      @map("updated_at")
+
+  // Relations
+  inscriptions Inscription[]
+
+  @@index([email])
+  @@map("participants")
+}
+
+// ============================================================
+// INSCRIPTION
+// ============================================================
+
+model Inscription {
+  id            String            @id @default(cuid())
+  reference     String            @unique
+  motivation    String            @db.Text
+  statut        StatutInscription @default(EN_ATTENTE)
+  makeNotified  Boolean           @default(false) @map("make_notified")
+  makeNotifiedAt DateTime?        @map("make_notified_at")
+  createdAt     DateTime          @default(now()) @map("created_at")
+  updatedAt     DateTime          @updatedAt      @map("updated_at")
+
+  // Relations
+  participantId String      @map("participant_id")
+  participant   Participant @relation(fields: [participantId], references: [id], onDelete: Cascade)
+
+  formationId String    @map("formation_id")
+  formation   Formation @relation(fields: [formationId], references: [id], onDelete: Restrict)
+
+  // Contrainte unicité : un participant ne peut pas s'inscrire deux fois à la même formation
+  @@unique([participantId, formationId], name: "unique_participant_formation")
+
+  @@index([participantId])
+  @@index([formationId])
+  @@index([reference])
+  @@index([statut])
+  @@map("inscriptions")
+}

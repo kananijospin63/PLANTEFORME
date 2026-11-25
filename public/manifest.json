@@ -1,0 +1,25 @@
+{
+  "name": "CLUB AI — Formations en Intelligence Artificielle",
+  "short_name": "CLUB AI",
+  "description": "Formations pratiques en intelligence artificielle à Bujumbura, Burundi.",
+  "lang": "fr",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f6efe6",
+  "theme_color": "#1a100d",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="CLUB AI">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#efc98c"/>
+      <stop offset="1" stop-color="#ae5837"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="#1a100d"/>
+  <path d="M37 6 L16 35 h12.5 l-2.5 23 L47 29 H34 Z" fill="url(#gold)"/>
+</svg>

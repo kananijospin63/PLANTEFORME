@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  JOVIM Tech — Template Email de Confirmation
+  ============================================================
+  UTILISATION DANS MAKE :
+  Ce fichier est le template HTML à coller dans Make.
+  Remplacez les {{variables}} par les données Make correspondantes.
+
+  Variables Make à mapper :
+  {{prenom}}          → payload.prenom
+  {{nom}}             → payload.nom
+  {{reference}}       → payload.reference
+  {{geminiMessage}}   → Sortie du module Gemini AI
+  {{formationTitre}}  → payload.formation.titre
+  {{formationDate}}   → payload.formation.date
+  {{formationHeure}}  → payload.formation.heure
+  {{formationLieu}}   → payload.formation.lieu
+  {{formationPrix}}   → payload.formation.prix
+  {{whatsappGroupUrl}}→ payload.whatsappGroupUrl
+  ============================================================
+-->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confirmation d'inscription — JOVIM Tech</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap');
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',Arial,sans-serif; background:#F8FAFC; color:#0F172A; -webkit-font-smoothing:antialiased; }
+    a { text-decoration:none; }
+    @media (max-width:600px) {
+      .container { width:100% !important; }
+      .pad { padding:24px 16px !important; }
+      .hero-title { font-size:22px !important; }
+      .col2 { display:block !important; width:100% !important; }
+    }
+  </style>
+</head>
+<body>
+
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#F8FAFC; padding:32px 16px;">
+<tr><td align="center">
+<table class="container" width="600" cellpadding="0" cellspacing="0"
+       style="max-width:600px; width:100%; border-radius:16px; overflow:hidden; box-shadow:0 4px 32px rgba(15,23,42,0.10);">
+
+  <!-- ── HEADER ── -->
+  <tr>
+    <td style="background:#0F172A; padding:36px 40px; text-align:center;">
+      <div style="font-family:'Montserrat',Arial,sans-serif; font-size:30px; font-weight:800; letter-spacing:-0.02em; margin-bottom:5px;">
+        <span style="color:#16A34A;">J</span><span style="color:#7C3AED;">O</span><span style="color:#16A34A;">V</span><span style="color:#7C3AED;">I</span><span style="color:#16A34A;">M</span>&nbsp;<span style="color:#7C3AED;">T</span><span style="color:#16A34A;">e</span><span style="color:#7C3AED;">c</span><span style="color:#16A34A;">h</span>
+      </div>
+      <div style="font-size:9px; font-family:'Inter',Arial,sans-serif; color:rgba(255,255,255,0.3); letter-spacing:0.16em; text-transform:uppercase; margin-bottom:28px;">Bujumbura · Burundi</div>
+
+      <div style="width:58px; height:58px; background:rgba(245,158,11,0.12); border:2px solid rgba(245,158,11,0.30); border-radius:16px; margin:0 auto 14px; line-height:58px; font-size:28px; color:#F59E0B;">✓</div>
+
+      <div style="font-size:10px; font-family:'Inter',Arial,sans-serif; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#F59E0B; margin-bottom:10px;">Inscription confirmée</div>
+      <h1 class="hero-title" style="font-family:'Montserrat',Arial,sans-serif; font-size:26px; font-weight:700; color:#fff; line-height:1.25; letter-spacing:-0.01em;">
+        Votre inscription est confirmée
+      </h1>
+      <div style="width:40px; height:3px; background:#F59E0B; border-radius:999px; margin:16px auto 0;"></div>
+    </td>
+  </tr>
+
+  <!-- ── CORPS ── -->
+  <tr>
+    <td class="pad" style="background:#fff; padding:40px;">
+
+      <!-- Salutation -->
+      <p style="font-family:'Montserrat',Arial,sans-serif; font-size:18px; font-weight:700; color:#0F172A; margin-bottom:5px;">
+        Bonjour {{prenom}} {{nom}},
+      </p>
+      <div style="width:32px; height:2px; background:#F59E0B; border-radius:999px; margin-bottom:20px;"></div>
+
+      <!-- Message Gemini -->
+      <div style="font-family:'Inter',Arial,sans-serif; font-size:15px; line-height:1.8; color:#475569; background:#F8FAFC; border-left:3px solid #F59E0B; padding:18px 20px; border-radius:0 10px 10px 0; margin-bottom:28px; white-space:pre-line;">
+        {{geminiMessage}}
+      </div>
+
+      <!-- Référence -->
+      <table width="100%" cellpadding="0" cellspacing="0" style="background:#0F172A; border-radius:12px; margin-bottom:28px;">
+        <tr>
+          <td style="padding:18px 24px; text-align:center;">
+            <div style="font-family:'Inter',Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:6px;">Référence d'inscription</div>
+            <div style="font-family:'Montserrat',Arial,sans-serif; font-size:24px; font-weight:800; color:#F59E0B; letter-spacing:0.08em;">{{reference}}</div>
+            <div style="font-size:10px; font-family:'Inter',Arial,sans-serif; color:rgba(255,255,255,0.25); margin-top:6px;">Conservez cette référence pour tout suivi</div>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Récap formation -->
+      <div style="margin-bottom:28px;">
+        <div style="font-size:10px; font-family:'Inter',Arial,sans-serif; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(15,23,42,0.35); margin-bottom:12px;">Détails de votre formation</div>
+
+        <!-- Titre -->
+        <table width="100%" cellpadding="0" cellspacing="0" style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px; margin-bottom:8px;">
+          <tr>
+            <td style="padding:13px 16px;">
+              <div style="font-size:10px; font-family:'Inter',Arial,sans-serif; color:rgba(15,23,42,0.35); font-weight:600; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:3px;">🎓 Formation</div>
+              <div style="font-family:'Montserrat',Arial,sans-serif; font-size:13px; font-weight:700; color:#0F172A;">{{formationTitre}}</div>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Grille 2 col -->
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td class="col2" width="50%" style="padding-right:4px; padding-bottom:8px; vertical-align:top;">
+              <table width="100%" cellpadding="0" cellspacing="0" style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px;">
+                <tr><td style="padding:12px 14px;">
+                  <div style="font-size:10px; font-family:'Inter',Arial,sans-serif; color:rgba(15,23,42,0.35); font-weight:600; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:3px;">📅 Date</div>
+                  <div style="font-family:'Montserrat',Arial,sans-serif; font-size:13px; font-weight:600; color:#0F172A;">{{formationDate}}</div>
+                </td></tr>
+              </table>
+            </td>
+            <td class="col2" width="50%" style="padding-left:4px; padding-bottom:8px; vertical-align:top;">
+              <table width="100%" cellpadding="0" cellspacing="0" style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px;">
+                <tr><td style="padding:12px 14px;">
+                  <div style="font-size:10px; font-family:'Inter',Arial,sans-serif; color:rgba(15,23,42,0.35); font-weight:600; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:3px;">⏰ Horaire</div>
+                  <div style="font-family:'Montserrat',Arial,sans-serif; font-size:13px; font-weight:600; color:#0F172A;">{{formationHeure}}</div>
+                </td></tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="col2" width="50%" style="padding-right:4px; vertical-align:top;">
+              <table width="100%" cellpadding="0" cellspacing="0" style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px;">
+                <tr><td style="padding:12px 14px;">
+                  <div style="font-size:10px; font-family:'Inter',Arial,sans-serif; color:rgba(15,23,42,0.35); font-weight:600; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:3px;">📍 Lieu</div>
+                  <div style="font-family:'Montserrat',Arial,sans-serif; font-size:13px; font-weight:600; color:#0F172A;">{{formationLieu}}</div>
+                </td></tr>
+              </table>
+            </td>
+            <td class="col2" width="50%" style="padding-left:4px; vertical-align:top;">
+              <table width="100%" cellpadding="0" cellspacing="0" style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px;">
+                <tr><td style="padding:12px 14px;">
+                  <div style="font-size:10px; font-family:'Inter',Arial,sans-serif; color:rgba(15,23,42,0.35); font-weight:600; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:3px;">💰 Prix</div>
+                  <div style="font-family:'Montserrat',Arial,sans-serif; font-size:13px; font-weight:700; color:#F59E0B;">{{formationPrix}}</div>
+                </td></tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- CTA WhatsApp -->
+      <div style="text-align:center; margin-bottom:28px;">
+        <p style="font-family:'Inter',Arial,sans-serif; font-size:13px; color:#475569; margin-bottom:14px; line-height:1.6;">
+          Rejoignez le groupe WhatsApp de votre formation pour recevoir<br>toutes les informations importantes avant le jour J.
+        </p>
+        <a href="{{whatsappGroupUrl}}"
+           style="display:inline-block; background:#25D366; color:#fff; font-family:'Montserrat',Arial,sans-serif; font-size:15px; font-weight:700; padding:16px 32px; border-radius:12px; text-decoration:none; box-shadow:0 4px 14px rgba(37,211,102,0.30);">
+          💬 &nbsp;Rejoindre le groupe WhatsApp
+        </a>
+      </div>
+
+      <!-- Séparateur -->
+      <div style="border-top:1px solid #E2E8F0; margin-bottom:24px;"></div>
+
+      <!-- Réseaux sociaux -->
+      <div style="text-align:center;">
+        <div style="font-size:10px; font-family:'Inter',Arial,sans-serif; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(15,23,42,0.35); margin-bottom:14px;">Suivez JOVIM Tech</div>
+
+        <!-- Facebook #1877F2 -->
+        <a href="https://www.facebook.com/jovim.code"
+           style="display:inline-block; background:#1877F2; color:#fff; font-family:'Inter',Arial,sans-serif; font-size:12px; font-weight:700; padding:9px 15px; border-radius:8px; margin:4px; text-decoration:none;">
+          <span style="margin-right:4px; font-size:13px;">f</span>Facebook
+        </a>
+
+        <!-- Instagram dégradé officiel -->
+        <a href="https://www.instagram.com/jovimcode?utm_source=qr"
+           style="display:inline-block; background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color:#fff; font-family:'Inter',Arial,sans-serif; font-size:12px; font-weight:700; padding:9px 15px; border-radius:8px; margin:4px; text-decoration:none;">
+          📷 Instagram
+        </a>
+
+        <!-- TikTok noir avec accent cyan/rouge officiel -->
+        <a href="https://www.tiktok.com/@jovimcode?is_from_webapp=1&sender_device=pc"
+           style="display:inline-block; background:#010101; color:#fff; font-family:'Inter',Arial,sans-serif; font-size:12px; font-weight:700; padding:9px 15px; border-radius:8px; margin:4px; text-decoration:none; border:1px solid #222;">
+          <span style="color:#69C9D0; margin-right:2px;">♪</span>TikTok<span style="color:#EE1D52; margin-left:2px;">•</span>
+        </a>
+
+        <!-- YouTube rouge officiel #FF0000 -->
+        <a href="https://www.youtube.com/@JovimCode"
+           style="display:inline-block; background:#FF0000; color:#fff; font-family:'Inter',Arial,sans-serif; font-size:12px; font-weight:700; padding:9px 15px; border-radius:8px; margin:4px; text-decoration:none;">
+          ▶ YouTube
+        </a>
+      </div>
+
+    </td>
+  </tr>
+
+  <!-- ── FOOTER ── -->
+  <tr>
+    <td style="background:#0F172A; padding:28px 40px; text-align:center;">
+      <div style="font-family:'Montserrat',Arial,sans-serif; font-size:17px; font-weight:800; margin-bottom:4px;">
+        <span style="color:#16A34A;">J</span><span style="color:#7C3AED;">O</span><span style="color:#16A34A;">V</span><span style="color:#7C3AED;">I</span><span style="color:#16A34A;">M</span>&nbsp;<span style="color:#7C3AED;">T</span><span style="color:#16A34A;">e</span><span style="color:#7C3AED;">c</span><span style="color:#16A34A;">h</span>
+      </div>
+      <div style="font-size:9px; font-family:'Inter',Arial,sans-serif; color:rgba(255,255,255,0.25); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:16px;">Bujumbura, Burundi</div>
+      <a href="mailto:jovimcode@gmail.com" style="display:block; font-family:'Inter',Arial,sans-serif; font-size:12px; color:rgba(255,255,255,0.45); margin-bottom:4px;">✉ jovimcode@gmail.com</a>
+      <a href="https://wa.me/25777165741"  style="display:block; font-family:'Inter',Arial,sans-serif; font-size:12px; color:rgba(255,255,255,0.45); margin-bottom:2px;">💬 +257 77 165741</a>
+      <a href="https://wa.me/25779490806"  style="display:block; font-family:'Inter',Arial,sans-serif; font-size:12px; color:rgba(255,255,255,0.45); margin-bottom:16px;">💬 +257 79 49 08 06</a>
+      <div style="font-size:11px; font-family:'Inter',Arial,sans-serif; color:rgba(255,255,255,0.18); border-top:1px solid rgba(255,255,255,0.06); padding-top:14px;">
+        © 2026 JOVIM Tech · Tous droits réservés<br>
+        Cet email vous a été envoyé suite à votre inscription.
+      </div>
+    </td>
+  </tr>
+
+</table>
+</td></tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,212 @@
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        // ── Palette Espresso / Café Premium ──
+        espresso: {
+          DEFAULT: '#1a100d',
+          50:  '#fdf6ee',
+          100: '#f4eee5',
+          200: '#e8d5bc',
+          300: '#d8b98a',
+          400: '#c49050',
+          500: '#ae5837',
+          600: '#8c3f22',
+          700: '#6b2d14',
+          800: '#4a1e0d',
+          900: '#2e130a',
+          950: '#1a100d',
+        },
+        gold: {
+          DEFAULT: 'rgb(var(--gold-rgb) / <alpha-value>)',
+          light:   '#f7e4c0',
+          dark:    '#d8a267',
+          copper:  'rgb(var(--copper-rgb) / <alpha-value>)',
+          warm:    '#d4874a',
+          50:      '#fdf8ee',
+          100:     '#f7e4c0',
+          200:     '#efc98c',
+          300:     '#e8b060',
+          400:     '#d8a267',
+          500:     '#c48b3a',
+          600:     '#ae5837',
+          700:     '#8c3f22',
+          800:     '#6b2d14',
+          900:     '#4a1e0d',
+        },
+        cream: {
+          DEFAULT: '#fff4e8',
+          dark:    '#f4eee5',
+          warm:    '#ede0cc',
+          muted:   '#c8b49a',
+        },
+        // ── Sémantiques ──
+        success: {
+          DEFAULT: '#059669',
+          light:   '#D1FAE5',
+          dark:    '#047857',
+        },
+        danger: {
+          DEFAULT: '#DC2626',
+          light:   '#FEE2E2',
+          dark:    '#B91C1C',
+        },
+        info: {
+          DEFAULT: '#0284C7',
+          light:   '#E0F2FE',
+          dark:    '#0369A1',
+        },
+        // ── Neutres sable ──
+        surface: {
+          DEFAULT: '#f4eee5',
+          50:  '#fdf8f2',
+          100: '#f4eee5',
+          200: '#ede0cc',
+          300: '#d8c9b0',
+          400: '#b8a080',
+          500: '#8c7558',
+          600: '#6b5540',
+          700: '#4a3828',
+          800: '#2e2318',
+          900: '#1a100d',
+        },
+        // rétrocompat
+        navy: {
+          DEFAULT: '#1a100d',
+          800:     '#2e130a',
+          900:     '#1a100d',
+          950:     '#120a07',
+        },
+      },
+      fontFamily: {
+        sans:      ['var(--font-manrope)',    'Inter', 'system-ui', 'sans-serif'],
+        display:   ['var(--font-unbounded)', 'var(--font-manrope)', 'sans-serif'],
+        unbounded: ['var(--font-unbounded)', 'sans-serif'],
+      },
+      fontSize: {
+        'display-2xl': ['4.5rem',  { lineHeight: '1.05', letterSpacing: '-0.02em' }],
+        'display-xl':  ['3.75rem', { lineHeight: '1.08', letterSpacing: '-0.018em' }],
+        'display-lg':  ['3rem',    { lineHeight: '1.1',  letterSpacing: '-0.016em' }],
+        'display-md':  ['2.25rem', { lineHeight: '1.15', letterSpacing: '-0.012em' }],
+        'display-sm':  ['1.875rem',{ lineHeight: '1.2',  letterSpacing: '-0.01em'  }],
+      },
+      spacing: {
+        '18': '4.5rem',
+        '22': '5.5rem',
+        '26': '6.5rem',
+        '30': '7.5rem',
+      },
+      maxWidth: {
+        '8xl': '88rem',
+        '9xl': '96rem',
+      },
+      borderRadius: {
+        DEFAULT: '8px',
+        'sm':  '4px',
+        'md':  '10px',
+        'lg':  '14px',
+        'xl':  '18px',
+        '2xl': '24px',
+      },
+      boxShadow: {
+        'card':        '0 1px 3px rgba(26,16,13,0.08), 0 4px 16px rgba(26,16,13,0.06)',
+        'card-hover':  '0 8px 32px rgba(26,16,13,0.18), 0 2px 8px rgba(239,201,140,0.15)',
+        'espresso':    '0 4px 24px rgba(26,16,13,0.4)',
+        'gold':        '0 4px 20px rgba(239,201,140,0.4)',
+        'gold-glow':   '0 0 30px rgba(239,201,140,0.25), 0 4px 16px rgba(174,88,55,0.3)',
+        'button':      '0 2px 8px rgba(26,16,13,0.25)',
+        'button-hover':'0 6px 20px rgba(26,16,13,0.35), 0 2px 8px rgba(239,201,140,0.2)',
+        'glass':       '0 8px 32px rgba(26,16,13,0.3), inset 0 1px 0 rgba(255,244,232,0.1)',
+        'inner-gold':  'inset 0 0 0 2px rgba(239,201,140,0.4)',
+      },
+      animation: {
+        'fade-in':    'fadeIn 0.4s ease-out forwards',
+        'slide-up':   'slideUp 0.45s ease-out forwards',
+        'slide-up-1': 'slideUp 0.45s ease-out 0.05s forwards',
+        'slide-up-2': 'slideUp 0.45s ease-out 0.10s forwards',
+        'slide-up-3': 'slideUp 0.45s ease-out 0.15s forwards',
+        'slide-up-4': 'slideUp 0.45s ease-out 0.20s forwards',
+        'slide-up-5': 'slideUp 0.45s ease-out 0.25s forwards',
+        'slide-up-6': 'slideUp 0.45s ease-out 0.30s forwards',
+        'slide-up-7': 'slideUp 0.45s ease-out 0.35s forwards',
+        'slide-up-8': 'slideUp 0.45s ease-out 0.40s forwards',
+        'float':      'float 3s ease-in-out infinite',
+        'shimmer':    'shimmer 1.5s infinite',
+        'aurora':     'aurora 8s ease-in-out infinite alternate',
+        'grain':      'grain 0.3s steps(1) infinite',
+        'ripple':     'ripple 0.6s cubic-bezier(.2,.8,.2,1) forwards',
+        'bump':       'bump 0.3s cubic-bezier(.34,1.45,.64,1) forwards',
+        'pulse-gold': 'pulseGold 2s ease-in-out infinite',
+        'spin':       'spin 1s linear infinite',
+      },
+      keyframes: {
+        fadeIn:   { from: { opacity: '0' }, to: { opacity: '1' } },
+        slideUp:  {
+          from: { opacity: '0', transform: 'translateY(20px)' },
+          to:   { opacity: '1', transform: 'translateY(0)'    },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%':      { transform: 'translateY(-8px)' },
+        },
+        shimmer: {
+          from: { backgroundPosition: '-200% 0' },
+          to:   { backgroundPosition:  '200% 0' },
+        },
+        aurora: {
+          '0%':   { transform: 'translate(-20%,-20%) scale(1)',   opacity: '0.5' },
+          '33%':  { transform: 'translate(10%,-10%) scale(1.15)', opacity: '0.7' },
+          '66%':  { transform: 'translate(-5%, 15%) scale(0.95)', opacity: '0.4' },
+          '100%': { transform: 'translate(15%, -5%) scale(1.1)',  opacity: '0.6' },
+        },
+        grain: {
+          '0%, 100%': { backgroundPosition: '0% 0%'   },
+          '10%':      { backgroundPosition: '-5% -10%' },
+          '30%':      { backgroundPosition: '3% -15%'  },
+          '50%':      { backgroundPosition: '12% 9%'   },
+          '70%':      { backgroundPosition: '9% 4%'    },
+          '90%':      { backgroundPosition: '-1% 7%'   },
+        },
+        ripple: {
+          from: { transform: 'scale(0)', opacity: '0.6' },
+          to:   { transform: 'scale(4)', opacity: '0'   },
+        },
+        bump: {
+          '0%':   { transform: 'scale(1)'    },
+          '50%':  { transform: 'scale(1.18)' },
+          '100%': { transform: 'scale(1)'    },
+        },
+        pulseGold: {
+          '0%,100%': { boxShadow: '0 0 0 0 rgba(239,201,140,0.4)' },
+          '50%':     { boxShadow: '0 0 0 8px rgba(239,201,140,0)' },
+        },
+        spin: {
+          from: { transform: 'rotate(0deg)'   },
+          to:   { transform: 'rotate(360deg)' },
+        },
+      },
+      transitionTimingFunction: {
+        'premium': 'cubic-bezier(.4,0,.2,1)',
+        'ease':    'cubic-bezier(.2,.8,.2,1)',
+        'spring':  'cubic-bezier(.34,1.45,.64,1)',
+      },
+      transitionDuration: { DEFAULT: '220ms' },
+      backgroundImage: {
+        'gradient-gold':     'linear-gradient(135deg, #efc98c, #ae5837)',
+        'gradient-gold-h':   'linear-gradient(90deg,  #efc98c, #d8a267, #ae5837)',
+        'gradient-espresso': 'linear-gradient(135deg, #2e130a, #1a100d)',
+        'gradient-cream':    'linear-gradient(135deg, #fff4e8, #f4eee5)',
+      },
+    },
+  },
+  plugins: [],
+}
+
+export default config

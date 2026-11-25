@@ -1,0 +1,69 @@
+{
+  "source": "club-ai-backend",
+  "version": "2.0",
+  "event": "INSCRIPTION_CREATED",
+  "timestamp": "2026-11-24T12:38:36.810Z",
+  "reference": "CLUBAI-2026-0099",
+  "statut": "EN_ATTENTE",
+  "motivation": "Test technique de l'automatisation Make.",
+  "createdAt": "2026-11-24T12:38:36.810Z",
+  "nom": "Test",
+  "prenom": "Verification",
+  "email": "kananijospin63@gmail.com",
+  "telephone": "+257 77 123 456",
+  "fonction": "Entrepreneur",
+  "entreprise": "JN SARL",
+  "niveauIA": "DEBUTANT",
+  "niveauIALabel": "Débutant",
+  "formation": {
+    "titre": "MAÎTRISER CHATGPT, GEMINI & CLAUDE ET CRÉER DES VIDÉOS AVEC L'IA",
+    "slug": "maitriser-chatgpt-gemini-claude",
+    "date": "01 – 05 DÉCEMBRE 2026",
+    "heure": "15H30 – 19H30",
+    "heureDebut": "15H30",
+    "heureFin": "19H30",
+    "lieu": "Centre CEPRODILUC, Bujumbura",
+    "lieuNom": "Centre CEPRODILUC",
+    "lieuVille": "Bujumbura",
+    "prix": "150 000 FBU"
+  },
+  "whatsappGroupUrl": "https://chat.whatsapp.com/BgwYG0nijyYHGLDh6ZYWCo?s=cl&p=a&mlu=4&ilr=4",
+  "sheets": {
+    "reference": "CLUBAI-2026-0099",
+    "dateInscription": "15/11/2026",
+    "nom": "Test",
+    "prenom": "Verification",
+    "email": "kananijospin63@gmail.com",
+    "telephone": "+257 77 123 456",
+    "fonction": "Entrepreneur",
+    "entreprise": "JN SARL",
+    "niveauIA": "Débutant",
+    "formation": "MAÎTRISER CHATGPT, GEMINI & CLAUDE ET CRÉER DES VIDÉOS AVEC L'IA",
+    "dateFormation": "01 – 05 DÉCEMBRE 2026",
+    "heure": "15H30 – 19H30",
+    "lieu": "Centre CEPRODILUC, Bujumbura",
+    "prix": "150 000 FBU",
+    "motivation": "Je souhaite apprendre à utiliser l'IA pour automatiser mon activité.",
+    "statut": "EN ATTENTE"
+  },
+  "gemini": {
+    "prompt": "Tu es un conseiller bienveillant et enthousiaste de CLUB AI... [prompt complet généré automatiquement]",
+    "prenom": "Verification",
+    "formation": "MAÎTRISER CHATGPT, GEMINI & CLAUDE ET CRÉER DES VIDÉOS AVEC L'IA",
+    "niveauIA": "Débutant",
+    "motivation": "Test technique de l'automatisation Make."
+  },
+  "socials": {
+    "facebook": "https://www.facebook.com/jovim.code",
+    "instagram": "https://www.instagram.com/jovimcode?utm_source=qr",
+    "tiktok": "https://www.tiktok.com/@jovimcode?is_from_webapp=1&sender_device=pc",
+    "youtube": "https://www.youtube.com/@JovimCode",
+    "linkedin": ""
+  },
+  "contact": {
+    "email": "clubai@gmail.com",
+    "whatsapp1": "+257 77 165741",
+    "whatsapp2": "+257 79 49 08 06",
+    "site": "http://localhost:3000"
+  }
+}
