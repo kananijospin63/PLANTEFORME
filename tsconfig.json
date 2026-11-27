@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "app/**/*.ts", "app/**/*.tsx", "components/**/*.ts", "components/**/*.tsx", "data/**/*.ts", "services/**/*.ts", "types/**/*.ts", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", "backend", ".next", "out", "public", "images"]
+  "include": ["next-env.d.ts", "app/**/*.ts", "app/**/*.tsx", "components/**/*.ts", "components/**/*.tsx", "data/**/*.ts", "lib/**/*.ts", "services/**/*.ts", "types/**/*.ts", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", "backend", ".next", "out", "public", "images", "prisma/seed.ts"]
 }

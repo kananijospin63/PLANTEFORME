@@ -1,0 +1,13 @@
+{
+  "buildCommand": "prisma generate && next build",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "env": {
+    "DATABASE_URL": "@database_url",
+    "MAKE_WEBHOOK_URL": "@make_webhook_url",
+    "WHATSAPP_GROUP_CHATGPT": "@whatsapp_group_chatgpt",
+    "WHATSAPP_GROUP_N8N": "@whatsapp_group_n8n",
+    "WHATSAPP_GROUP_ENTREPRENEURS": "@whatsapp_group_entrepreneurs",
+    "WHATSAPP_GROUP_GENERAL": "@whatsapp_group_general"
+  }
+}
